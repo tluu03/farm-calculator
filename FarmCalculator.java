@@ -3,15 +3,20 @@ import java.util.Scanner;
 public class FarmCalculator
 {
 	private static void percentageChangeInWater() {
+		Scanner reader = new Scanner(System.in);
 		System.out.println("Which house?");
+		int house = reader.nextInt();
+
 		System.out.println("Enter last flock consumption (gallons):");
-		var last = 0.0;
+		int last = reader.nextInt();
+
 		System.out.println("Enter current flock consumption (gallons):");
-		var current = 0.0;
-		var percentageChange = 0.0; // Do your math here.
-		System.out.printf("Last flock consumption: %.2f \n", last); 
-		System.out.printf("Current flock consumption: %.2f \n", current); 
-		System.out.printf("Percentage-change in water: %.2f \n", percentageChange); 
+		int current = reader.nextInt();
+
+		int percentageChange = ((current - last) * 100) / last;
+		System.out.println("Last flock consumption: " + last); 
+		System.out.println("Current flock consumption: " + current); 
+		System.out.println("Percentage-change in water: " + percentageChange + "%"); 
 	}
 
 	private static void avgWaterConsumptionInAllHouses() {
