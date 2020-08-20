@@ -16,21 +16,37 @@ public class FarmCalculator
 		int percentageChange = ((current - last) * 100) / last;
 		System.out.println("Last flock consumption: " + last); 
 		System.out.println("Current flock consumption: " + current); 
-		System.out.println("Percentage-change in water: " + percentageChange + "%"); 
+		System.out.println("Percentage-change in water: " + percentageChange + "%");  
+
 	}
 
 	private static void avgWaterConsumptionInAllHouses() {
+		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter avg water consumption target for a \"successful\" batch (gallons):");
+		int successful = reader.nextInt();
 		System.out.println("Enter flock consumption for house 1 (gallons):");
+		int house1 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 2 (gallons):");
+		int house2 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 3 (gallons):");
+		int house3 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 4 (gallons):");
+		int house4 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 5 (gallons):");
+		int house5 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 6 (gallons):");
+		int house6 = reader.nextInt();
 		System.out.println("Enter flock consumption for house 7 (gallons):");
-		System.out.println("Average water consumption among all houses (gallons):");
-		System.out.println("Your batch was successful!");
-		System.out.println("Your batch was failed.");
+		int house7 = reader.nextInt();
+
+		int avgCons = (house1+house2+house3+house4+house5+house6+house7) / 7;
+		System.out.println("Average water consumption among all houses (gallons):" + avgCons);
+		if (avgCons >= successful) {
+			System.out.println("Your batch was successful!");
+		}
+		else {
+			System.out.println("Your batch was failed.");
+		}
 	}
 
 	public static void main(String[] args) 
