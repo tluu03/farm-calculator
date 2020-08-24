@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math.*;
 
 public class FarmCalculator {
 	private static void percentageChangeInWater() {
@@ -47,30 +48,39 @@ public class FarmCalculator {
 	}
 
 	private static void avgCullRate() {
+		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter total # of houses:");
-		var totalHouses = 0;
-		var someArbitraryHouse = 0;
-		System.out.println("Enter total chickens in house " + someArbitraryHouse + ":");
-		System.out.println("Enter total culled chickens in house " + someArbitraryHouse + ":");
-		var someCalculatedCullRate = 0;
-		System.out.println("Cull rate for house " + someArbitraryHouse + ":" + someCalculatedCullRate);
-		var avgCullRate = 0;
-		System.out.println("Average cull rate for ALL " + totalHouses + " houses: " + avgCullRate);
+		int housenum = reader.nextInt();
+		for(int i= housenum; i>=1; i--){
+		System.out.println("Enter total chickens in house " + i + ":");
+		int chicktot = reader.nextInt();
+		System.out.println("Enter total culled chickens in house " + i + ":");
+		int totcull = reader.nextInt();
+		int avgcull = (chicktot + totcull) / 2;
+		System.out.println("Cull rate for house " + i + ":" + avgcull);
+		}
+		System.out.println("Average cull rate for ALL " + housenum + " houses: ");
 	}
 
 	private static void farmMeasurements() {
+		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter length of a house:");
+		double houseleng = reader.nextInt();
 		System.out.println("Enter width of a house:");
-		double area = 0;
-		System.out.println("Area of house is: " + area);
+		double housewid = reader.nextInt();
+		double housearea = houseleng * housewid;
+		System.out.println("Area of house is: " + housearea);
 
 		System.out.println("Enter radius of feed cylinder:");
+		double cylrad = reader.nextInt();
 		System.out.println("Enter height of feed cylinder:");
-		double volume = 0;
-		System.out.println("Volume of feed cylinder is: " + volume);
+		double cylheight = reader.nextInt();
+		double cylvol = (Math.PI * cylrad * cylrad) * cylheight;
+		System.out.println("Volume of feed cylinder is: " + cylvol);
 	}
 
 	private static void comparePerformance() {
+		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter total # of houses:");
 		var totalHouses = 0;
 		System.out.println("Generating random water consumption values for " + totalHouses + " houses...");
