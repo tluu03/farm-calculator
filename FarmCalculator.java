@@ -51,15 +51,22 @@ public class FarmCalculator {
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Enter total # of houses:");
 		int housenum = reader.nextInt();
-		for(int i= housenum; i>=1; i--){
-		System.out.println("Enter total chickens in house " + i + ":");
+		int myArray[] = new int[housenum];
+		for(int i= 0; i < housenum; i++){
+		System.out.println("Enter total chickens in house " + (i+1) + ":");
 		int chicktot = reader.nextInt();
-		System.out.println("Enter total culled chickens in house " + i + ":");
+		System.out.println("Enter total culled chickens in house " + (i+1) + ":");
 		int totcull = reader.nextInt();
 		int avgcull = (chicktot + totcull) / 2;
-		System.out.println("Cull rate for house " + i + ":" + avgcull);
+		System.out.println("Cull rate for house " + (i+1) + ":" + avgcull);
+		myArray[i] = avgcull; 
 		}
-		System.out.println("Average cull rate for ALL " + housenum + " houses: ");
+		int total = 0;
+		for(int i= 0; i < housenum; i++){
+			total = total + myArray[i];
+		}
+		int totavg = total / housenum;
+		System.out.println("Average cull rate for ALL " + housenum + " houses: " + totavg);
 	}
 
 	private static void farmMeasurements() {
