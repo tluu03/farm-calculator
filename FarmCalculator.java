@@ -1,5 +1,7 @@
 import java.util.Scanner;
+import java.util.arrays;
 import java.lang.Math.*;
+import java.util.Random; 
 
 public class FarmCalculator {
 	private static void percentageChangeInWater() {
@@ -87,17 +89,35 @@ public class FarmCalculator {
 	}
 
 	private static void comparePerformance() {
+		Random rand = new Random(); 	
 		Scanner reader = new Scanner(System.in);
+ 
 		System.out.println("Enter total # of houses:");
-		var totalHouses = 0;
-		System.out.println("Generating random water consumption values for " + totalHouses + " houses...");
+		int houseNumb = reader.nextInt();
+		
+		for(int i= 0; i < houseNumb; i++) {
+		System.out.println("Generating random water consumption values for " + (i+1) + " houses...");
+			int rand_int = rand.nextInt(900);
+			int[] myArray1 = new int[rand_int];
+		}
+		for(int i= 0; i < houseNumb; i++) {
+		System.out.println("Enter current flock water consumption for house " + (i+1) + ":");
+			int flockComp = reader.nextInt();
+			int[] myArray2 = new int[flockComp];
+		}
 
-		var someArbitraryHouse = 0;
-		System.out.println("Enter current flock water consumption for house " + someArbitraryHouse + ":");
-
-		System.out.println("Current flock water consumption is > previous flock for house " + someArbitraryHouse + ":");
-		System.out.println("Current flock water consumption is < previous flock for house " + someArbitraryHouse + ":");
-		System.out.println("Current flock water consumption is = previous flock for house " + someArbitraryHouse + ":");
+		for(int i= 0; i < houseNumb;) {
+			if (myArray2[i] == myArray1[i]) {
+			System.out.println("Current flock water consumption is = previous flock for house " + (i+1) + ":");
+			i++;
+			}else if (myArray2[i] > myArray1[i]) {
+				System.out.println("Current flock water consumption is > previous flock for house " + (i+1) + ":");
+				i++;
+			}else  if (myArray2[i] < myArray1[i]) {
+				System.out.println("Current flock water consumption is < previous flock for house " + (i+1) + ":");
+				i++;
+			}
+		}
 	}
 
 	public static void main(String[] args) {
