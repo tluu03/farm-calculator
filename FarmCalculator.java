@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.arrays;
+import java.util.Arrays;
 import java.lang.Math.*;
 import java.util.Random; 
 
@@ -18,7 +18,6 @@ public class FarmCalculator {
 		System.out.println("Last flock consumption: " + last);
 		System.out.println("Current flock consumption: " + current);
 		System.out.println("Percentage-change in water: " + percentageChange + "%");
-
 	}
 
 	private static void avgWaterConsumptionInAllHouses() {
@@ -95,29 +94,32 @@ public class FarmCalculator {
 		System.out.println("Enter total # of houses:");
 		int houseNumb = reader.nextInt();
 		
+		int[] myArray1 = new int[houseNumb];
 		for(int i= 0; i < houseNumb; i++) {
 		System.out.println("Generating random water consumption values for " + (i+1) + " houses...");
 			int rand_int = rand.nextInt(900);
-			int[] myArray1 = new int[rand_int];
+			myArray1[i] = rand_int;
 		}
+		
+		int[] myArray2 = new int[houseNumb];
 		for(int i= 0; i < houseNumb; i++) {
 		System.out.println("Enter current flock water consumption for house " + (i+1) + ":");
 			int flockComp = reader.nextInt();
-			int[] myArray2 = new int[flockComp];
+			myArray2[i] = flockComp;
 		}
 
-		for(int i= 0; i < houseNumb;) {
-			if (myArray2[i] == myArray1[i]) {
-			System.out.println("Current flock water consumption is = previous flock for house " + (i+1) + ":");
-			i++;
-			}else if (myArray2[i] > myArray1[i]) {
-				System.out.println("Current flock water consumption is > previous flock for house " + (i+1) + ":");
-				i++;
-			}else  if (myArray2[i] < myArray1[i]) {
-				System.out.println("Current flock water consumption is < previous flock for house " + (i+1) + ":");
-				i++;
-			}
-		}
+		 for (int i = 0; i < houseNumb;) {
+		 	if (myArray2[i] == myArray1[i]) {
+		 		System.out.println("Current flock water consumption is = previous flock for house " + (i + 1) + ":");
+		 		i++;
+		 	} else if (myArray2[i] > myArray1[i]) {
+		 		System.out.println("Current flock water consumption is > previous flock for house " + (i + 1) + ":");
+		 		i++;
+		 	} else if (myArray2[i] < myArray1[i]) {
+		 		System.out.println("Current flock water consumption is < previous flock for house " + (i + 1) + ":");
+		 		i++;
+		 	}
+		 }
 	}
 
 	public static void main(String[] args) {
